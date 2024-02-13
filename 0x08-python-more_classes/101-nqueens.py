@@ -1,62 +1,52 @@
 #!/usr/bin/python3
 """
-nqueens backtracking program to print the coordinates of n queens
-on an nxn grid such that they are all in non-attacking positions
+N-Queens Solver
+
+This program solves the N-Queens problem and prints the solutions.
 """
 
+import sys
 
-from sys import argv
-
-if __name__ == "__main__":
-    a = []
-    if len(argv) != 2:
-        print("Usage: nqueens N")
-        exit(1)
-    if argv[1].isdigit() is False:
-        print("N must be a number")
-        exit(1)
-    n = int(argv[1])
-    if n < 4:
-        print("N must be at least 4")
-        exit(1)
-
-    # initialize the answer list
-    for i in range(n):
-        a.append([i, None])
-
-    def already_exists(y):
-        """check that a queen does not already exist in that y value"""
-        for x in range(n):
-            if y == a[x][1]:
-                return True
-        return False
-
-    def reject(x, y):
-        """determines whether or not to reject the solution"""
-        if (already_exists(y)):
+def is_safe(board, row, col, N):
+    """Check if placing a queen at position (row, col) is safe."""
+    # Check if there's a queen in the same row
+    for i in range(col):
+        if board[row][i] == 1:
             return False
-        i = 0
-        while(i < x):
-            if abs(a[i][1] - y) == abs(i - x):
-                return False
-            i += 1
+
+    # Check upper left diagonal
+    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+
+    # Check lower left diagonal
+    for i, j in zip(range(row, N, 1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+
+    return True
+
+def solve_queens(board, col, N):
+    """Recursively solve the N-Queens problem."""
+    if col >= N:
+        print_solution(board)
         return True
 
-    def clear_a(x):
-        """clears the answers from the point of failure on"""
-        for i in range(x, n):
-            a[i][1] = None
+    res = False
+    for i in range(N):
+        if is_safe(board, i, col, N):
+            board[i][col] = 1
+            res = solve_queens(board, col + 1, N) or res
+            board[i][col] = 0
 
-    def nqueens(x):
-        """recursive backtracking function to find the solution"""
-        for y in range(n):
-            clear_a(x)
-            if reject(x, y):
-                a[x][1] = y
-                if (x == n - 1):  # accepts the solution
-                    print(a)
-                else:
-                    nqueens(x + 1)  # moves on to next x value to continue
+    return res
 
-    # start the recursive process at x = 0
-    nqueens(0)
+def print_solution(board):
+    """Print the coordinates of queens in the solution."""
+    N = len(board)
+    solution = []
+    for i in range(N):
+        for j in range(N):
+            if board[i][j] == 1:
+                solution.append([i, j])
+    print(solution)

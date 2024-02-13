@@ -129,13 +129,3 @@ class Rectangle:
             rectangle += ("#" * self.width) + "\n"
 
         return rectangle[:-1]
-
-    def __repr__(self):
-        """ Method that returns the string represantion of the instance
-
-        Returns:
-            string represenation of the object
-
-        """
-
-        return "Rectangle({:d}, {:d})".format(self.width, self.height)

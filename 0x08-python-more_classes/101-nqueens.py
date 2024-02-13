@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+N queens backtracking program to print the coordinates of N queens
+on an NxN grid such that they are all in non-attacking positions
+"""
+
 import sys
 
 def is_safe(board, row, col, N):
@@ -16,7 +21,7 @@ def is_safe(board, row, col, N):
 
     return True
 
-def solve_queens(board, col, N):
+def solve_queens_util(board, col, N):
     if col >= N:
         print_solution(board)
         return True
@@ -24,11 +29,15 @@ def solve_queens(board, col, N):
     res = False
     for i in range(N):
         if is_safe(board, i, col, N):
-            board[i][col] = 1
-            res = solve_queens(board, col + 1, N) or res
-            board[i][col] = 0
-
+            board[i][col] = 1  # Place the queen
+            res = solve_queens_util(board, col + 1, N) or res  # Check next column
+            board[i][col] = 0  # Backtrack if no solution found
     return res
+
+def solve_queens(N):
+    board = [[0] * N for _ in range(N)]  # Initialize the board
+    if not solve_queens_util(board, 0, N):
+        print("No solution exists")
 
 def print_solution(board):
     N = len(board)
@@ -38,21 +47,3 @@ def print_solution(board):
             if board[i][j] == 1:
                 solution.append([i, j])
     print(solution)
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-
-    try:
-        N = int(sys.argv[1])
-    except ValueError:
-        print("N must be a number")
-        sys.exit(1)
-
-    if N < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-
-    board = [[0] * N for _ in range(N)]
-    solve_queens(board, 0, N)

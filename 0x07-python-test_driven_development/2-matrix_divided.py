@@ -12,12 +12,14 @@ def matrix_divided(matrix, div):
     Rerturn:
         the divided matrix
     """
-    res = []
-    if not matrix:
-         raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
+
     if matrix is None or div is None:
         raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
 
+    res = []
+    if not matrix:
+         raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
+        
     for i in range(len(matrix)):
         row = []
 

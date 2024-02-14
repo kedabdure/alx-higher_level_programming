@@ -6,7 +6,6 @@ Using ``matrix_divided``
 
 import matrix_divided function:
 
-
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 Dividing a matrix by 3:
@@ -20,6 +19,17 @@ Dividing a matrix by 0:
     Traceback (most recent call last):
     	      ...
     ZeroDivisionError: division by zero
+
+Dividing the matrix with positive infinity number:
+
+    >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
+
+
+Dividing the matrix with negative infinity number:
+
+    >>> matrix_divided([[1, 2], [3, 4]], float('-inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
 
 Dividing a matrix by a float number:
 

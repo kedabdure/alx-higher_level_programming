@@ -65,6 +65,17 @@ passing number < 0:
 
 ::
 
+passing null value:
+
+::
+
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
 passing floating value:
 
 ::

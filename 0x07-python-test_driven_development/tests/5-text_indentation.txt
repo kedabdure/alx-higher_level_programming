@@ -8,3 +8,20 @@ Using text_indentation
 imprting text_indentation function:
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Correct output cases:
+
+::
+
+    >>> text_indentation("my name is: abdurehim kedir. I'm from jimma. Is it difficult to gauss where i am from?")
+    my name is:
+    <BLANKLINE>
+    abdurehim kedir.
+    <BLANKLINE>
+    I'm from jimma.
+    <BLANKLINE>
+    Is it difficult to gauss where i am from?
+    <BLANKLINE>
+    <BLANKLINE>
+
+::

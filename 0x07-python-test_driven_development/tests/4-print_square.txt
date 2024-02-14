@@ -1,0 +1,86 @@
+the ``4-print_square`` module
+=============================
+
+how to ``print aquare``
+---------------------
+
+importing function from module 4-print_square:
+
+    >>> print_square = __import__('4-print_square').print_square
+
+printing 3 by 3 matrix:
+
+::
+
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+::
+
+printing 5 by 5 square:
+
+::
+
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+::
+
+passing string value:
+
+::
+
+    >>> print_square('hello')
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+passing floating value:
+
+::
+
+    >>> print_square(6.7)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+passing number < 0:
+
+::
+
+    >>> print_square(-7)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+::
+
+passing floating value:
+
+::
+
+    >>> print_square(6.7)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+passing none value:
+
+::
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer

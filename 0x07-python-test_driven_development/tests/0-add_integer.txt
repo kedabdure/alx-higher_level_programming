@@ -12,6 +12,11 @@ adding 3 and 5
 >>> add_integer(3, 5)
 8
 
+adding passing only one number
+------------------------------
+>>> add_integer(3)
+101
+
 adding -5 and 10
 -------------------
 >>> add_integer(-5, 10)

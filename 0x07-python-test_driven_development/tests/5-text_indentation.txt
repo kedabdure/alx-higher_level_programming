@@ -22,6 +22,25 @@ Correct output cases:
     <BLANKLINE>
     Is it difficult to gauss where i am from?
     <BLANKLINE>
-    <BLANKLINE>
+    
+::
+
+Correct outputcase2:
+
+::
+
+    >>> text_indentation("jimma University")
+    jimma University
+
+::
+
+Incorrect output cases:
+
+::
+
+    >>> text_indentation(7687)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
 
 ::

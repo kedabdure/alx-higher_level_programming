@@ -13,12 +13,11 @@ Dividing a matrix by 3:
     >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
-Passing only one argument:
+testing how function handles None argument:
 
->>> matrix_divided([[4, 5], [2, 3]])
-    Traceback (most recent call last):
-    	      ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    >>> matrix_divided(None, None)
+        Traceback (most recent call last):
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Dividing a matrix by 0:
 

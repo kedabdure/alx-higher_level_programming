@@ -22,6 +22,21 @@ correct case passing one list:
 
 ::
 
+Note that lists of strings are sorted lexographically.
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append("Brennan")
+    >>> my_list.append("Poppy")
+    >>> my_list.append("School")
+    >>> my_list.append("Holberton")
+    >>> my_list.append("Betty")
+    >>> print(my_list)
+    ['Brennan', 'Poppy', 'School', 'Holberton', 'Betty']
+
+::
+
 passing two argument:
 
 ::

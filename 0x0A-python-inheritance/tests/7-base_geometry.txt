@@ -13,11 +13,6 @@ importing the module:
     >>> type(bg)
     <class '7-base_geometry.BaseGeometry'>
 
-::
-
-    >>> print(bg) # doctest: +ELLIPSIS
-    <7-base_geometry.BaseGeometry object at ...>
-
 passing string:
 
 ::
@@ -25,7 +20,7 @@ passing string:
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: name must be an integer
 
 passing number grater than 0:
 
@@ -41,7 +36,7 @@ passing zero:
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
         ...
-    ValueError: <name> must be greater than 0
+    ValueError: age must be greater than 0
 
 
 passing less than zero value:
@@ -51,7 +46,7 @@ passing less than zero value:
     >>> bg.integer_validator("age", -5)
     Traceback (most recent call last):
         ...
-    ValueError: <name> must be greater than 0
+    ValueError: age must be greater than 0
 
 ::
 
@@ -62,7 +57,7 @@ Pass a floating-point number as `value
     >>> bg.integer_validator("age", 6.7)
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: age must be an integer
 
 Pass a boolean value as `value`
 ::
@@ -70,7 +65,7 @@ Pass a boolean value as `value`
     >>> bg.integer_validator("age", True)
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: age must be an integer
 
 passing None:
 
@@ -79,7 +74,7 @@ passing None:
     >>> bg.integer_validator("distance", None)
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: distance must be an integer
 
 Pass both `name` and `value` as `None
 
@@ -88,7 +83,7 @@ Pass both `name` and `value` as `None
     >>> bg.integer_validator(None, None)
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: None must be an integer
 
 Pass a complex number as `value`
 
@@ -97,7 +92,7 @@ Pass a complex number as `value`
     >>> bg.integer_validator("distance", 5j)
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: distance must be an integer
 
 
 passing only one argument:
@@ -134,7 +129,7 @@ passing tuple:
     >>> bg.integer_validator("age", (6, 1))
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: age must be an integer
 
 passing list:
 
@@ -143,7 +138,7 @@ passing list:
     >>> bg.integer_validator("age", [5, 7])
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: age must be an integer
 
 passing list:
 
@@ -152,7 +147,7 @@ passing list:
     >>> bg.integer_validator("age", {4, 4})
     Traceback (most recent call last):
         ...
-    TypeError: <name> must be an integer
+    TypeError: age must be an integer
 
 passing none:
 

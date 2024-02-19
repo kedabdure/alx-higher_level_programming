@@ -26,6 +26,15 @@ passing string:
 
 ::
 
+passing number grater than 0:
+
+::
+
+    >>> bg.integer_validator("age", 6)
+    >>>
+    
+::
+
 passing zero:
 
 ::

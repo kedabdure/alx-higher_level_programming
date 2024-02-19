@@ -1,0 +1,16 @@
+Using ``base_geometry`` module
+==============================
+
+use ``integer_validator`` methode to check if the value is integer
+
+importing the module:
+
+::
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12)
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
+
+::

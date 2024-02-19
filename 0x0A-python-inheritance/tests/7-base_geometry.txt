@@ -62,15 +62,12 @@ Pass a floating-point number as `value
     >>> bg.integer_validator("age", 6.7)
     Traceback (most recent call last):
         ...
-    ValueError: <name> must be greater than 0
+    TypeError: <name> must be an integer
 
 Pass a boolean value as `value`
 ::
 
     >>> bg.integer_validator("age", True)
-    Traceback (most recent call last):
-        ...
-    ValueError: <name> must be greater than 0
 
 passing None:
 

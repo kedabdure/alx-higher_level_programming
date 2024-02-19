@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""my list"""
+
+
 class MyList(list):
     """subclass of list"""
 

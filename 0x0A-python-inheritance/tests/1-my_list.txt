@@ -126,5 +126,43 @@ Note that lists of strings are sorted lexographically.
 
     >>> my_list.print_sorted()
     ['Betty', 'Brennan', 'Holberton', 'Poppy', 'School']
-    
+
 ::
+
+``MyList`` implements a single method - a public instance method
+``print_sorted(self)``.
+
+::
+
+    >>> my_list = MyList()
+    >>> print(my_list.print_sorted)
+    <bound method MyList.print_sorted of []>
+
+::
+
+element can be added or removed:
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> print(my_list)
+    [1, 2, 3]
+
+Replaced with indexing:
+
+::
+
+    >>> my_list[0] = 5
+    >>> print(my_list)
+    [5, 2, 3]
+
+And removed with the ``remove()`` method.
+
+::
+
+    >>> my_list.remove(5)
+    >>> print(my_list)
+    [2, 3]

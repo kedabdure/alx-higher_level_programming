@@ -98,3 +98,33 @@ passing differnt type of data to the list:
     TypeError: '<' not supported between instances of 'str' and 'int'
 
 ::
+
+nothing to sort with empty lists:
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+::
+
+Note that lists of strings are sorted lexographically.
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append("Brennan")
+    >>> my_list.append("Poppy")
+    >>> my_list.append("School")
+    >>> my_list.append("Holberton")
+    >>> my_list.append("Betty")
+    >>> print(my_list)
+    ['Brennan', 'Poppy', 'School', 'Holberton', 'Betty']
+
+::
+
+    >>> my_list.print_sorted()
+    ['Betty', 'Brennan', 'Holberton', 'Poppy', 'School']
+    
+::

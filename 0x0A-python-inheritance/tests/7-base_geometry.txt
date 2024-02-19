@@ -47,3 +47,36 @@ passing less than zero value:
     ValueError: <name> must be greater than 0
 
 ::
+
+passing None:
+
+::
+
+    >>> bg.integer_validator("distance", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: <name> must be an integer
+
+::
+
+passing only one argument:
+
+::
+
+    >>> bg.integer_validator("distance")
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+::
+
+passing no argument:
+
+::
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+::

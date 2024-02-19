@@ -100,3 +100,35 @@ passing no None:
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 ::
+
+passing tuple:
+
+::
+
+    >>> bg.integer_validator("age", (6, 1))
+    Traceback (most recent call last):
+        ...
+    TypeError: <name> must be an integer
+
+::
+
+passing list:
+
+::
+
+    >>> bg.integer_validator("age", [5, 7])
+    Traceback (most recent call last):
+        ...
+    TypeError: <name> must be an integer
+
+::
+
+passing list:
+
+::
+
+    >>> bg.integer_validator("age", {4, 4})
+    Traceback (most recent call last):
+        ...
+    TypeError: <name> must be an integer
+

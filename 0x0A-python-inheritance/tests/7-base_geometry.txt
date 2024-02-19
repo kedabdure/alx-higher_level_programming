@@ -32,7 +32,7 @@ passing number grater than 0:
 
     >>> bg.integer_validator("age", 6)
     >>>
-    
+
 ::
 
 passing zero:
@@ -87,5 +87,16 @@ passing no argument:
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+::
+
+passing no None:
+
+::
+
+    >>> bg.integer_validator(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 ::

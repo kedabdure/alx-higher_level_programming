@@ -15,6 +15,9 @@ importing the module:
 
 ::
 
+    >>> print(bg) # doctest: +ELLIPSIS
+    <7-base_geometry.BaseGeometry object at ...>
+
 passing string:
 
 ::
@@ -24,16 +27,12 @@ passing string:
         ...
     TypeError: <name> must be an integer
 
-::
-
 passing number grater than 0:
 
 ::
 
     >>> bg.integer_validator("age", 6)
     >>>
-
-::
 
 passing zero:
 
@@ -44,7 +43,6 @@ passing zero:
         ...
     ValueError: <name> must be greater than 0
 
-::
 
 passing less than zero value:
 
@@ -55,8 +53,6 @@ passing less than zero value:
         ...
     ValueError: <name> must be greater than 0
 
-::
-
 passing None:
 
 ::
@@ -65,8 +61,6 @@ passing None:
     Traceback (most recent call last):
         ...
     TypeError: <name> must be an integer
-
-::
 
 passing only one argument:
 
@@ -77,8 +71,6 @@ passing only one argument:
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-::
-
 passing no argument:
 
 ::
@@ -87,8 +79,6 @@ passing no argument:
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-::
 
 passing no None:
 
@@ -99,8 +89,6 @@ passing no None:
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-::
-
 passing tuple:
 
 ::
@@ -109,8 +97,6 @@ passing tuple:
     Traceback (most recent call last):
         ...
     TypeError: <name> must be an integer
-
-::
 
 passing list:
 
@@ -121,8 +107,6 @@ passing list:
         ...
     TypeError: <name> must be an integer
 
-::
-
 passing list:
 
 ::
@@ -132,3 +116,13 @@ passing list:
         ...
     TypeError: <name> must be an integer
 
+passing none:
+
+::
+
+    >>> bg = BaseGeometry(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry() takes no arguments
+
+::

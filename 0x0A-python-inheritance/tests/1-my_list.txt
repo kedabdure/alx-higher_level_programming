@@ -1,1 +1,21 @@
 
+the ``1-my_list`` module
+========================
+
+Using ``MyList `` list function
+-------------------------------
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> type(my_list)
+    <class '1-my_list.MyList'>
+
+::
+
+    >>> my_list([2, 3, 4])
+    Traceback (most recent call last):
+        ...
+    TypeError: 'MyList' object is not callable
+
+::

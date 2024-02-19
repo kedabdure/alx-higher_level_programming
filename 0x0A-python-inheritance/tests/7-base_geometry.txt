@@ -14,3 +14,36 @@ importing the module:
     <class '7-base_geometry.BaseGeometry'>
 
 ::
+
+passing string:
+
+::
+
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError: <name> must be an integer
+
+::
+
+passing zero:
+
+::
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: <name> must be greater than 0
+
+::
+
+passing less than zero value:
+
+::
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: <name> must be greater than 0
+
+::

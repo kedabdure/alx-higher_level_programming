@@ -14,4 +14,3 @@ def append_write(filename="", text=""):
         """append text to the end of the file"""
 
         return (f.write(text))
-  

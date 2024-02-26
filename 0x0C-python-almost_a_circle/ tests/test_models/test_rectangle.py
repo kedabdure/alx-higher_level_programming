@@ -15,7 +15,7 @@ class TestRectangle(unittest.TestCase):
         Base._Base__nb_objects = 0
         
     def tearDown(self):
-        print("tear down")
+        pass
 
     def test_rec_id(self):
         """Checking for id."""
@@ -32,7 +32,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.id, 12)
         r4 = Rectangle(10, 2, 4, 5, 34)
         self.assertEqual(r4.id, 34)
-        
+
     def test_passing_id(self):
         """checking custom id"""
         r5 = Rectangle(10, 2, 4, 5, -5)
@@ -40,3 +40,9 @@ class TestRectangle(unittest.TestCase):
         r6 = Rectangle(10, 2, 4, 5, 9)
         self.assertEqual(r6.id, 9)
 
+    def test_area(self):
+        """check the area"""
+        r7 = Rectangle(4, 6)
+        self.assertEqual(r7.area(), 24)
+        r8 = Rectangle(6, 7)
+        self.assertEqual(r8.area(), 42)

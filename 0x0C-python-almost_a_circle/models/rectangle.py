@@ -80,7 +80,8 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def __str__(self):
-        """print area"""
-        st = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
-        res =st + f"- {self.__width}/{self.__height}"
-        return (res)
+    """Return string representation of Rectangle."""
+    return (
+        f"[Rectangle] ({self.id}) {self.__x}/{self.__y} "
+        f"- {self.__width}/{self.__height}"
+    )

@@ -48,11 +48,12 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r8.area(), 42)
 
     def test_display(self):
-        """check for display"""
+        """Test for public method display."""
+
         f = io.StringIO()
-        r9 = Rectangle(2, 3)
+        r1 = Rectangle(4, 5)
         with contextlib.redirect_stdout(f):
-            r9.display()
+            r1.display()
         s = f.getvalue()
-        res = "##\n##\n##\n"
+        res = "####\n####\n####\n####\n####\n"
         self.assertEqual(s, res)

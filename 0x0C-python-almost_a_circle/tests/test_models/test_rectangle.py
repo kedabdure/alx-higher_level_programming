@@ -84,10 +84,9 @@ class TestRectangle(unittest.TestCase):
     def test_display(self):
         """check for display"""
         f = io.StringIO()
-        r9 = Rectangle(2, 3)
-
+        r9 = Rectangle(4, 4)
         with contextlib.redirect_stdout(f):
             r9.display()
         s = f.getvalue()
-        res = "##\n##\n##\n"
+        res = '####\n####\n####\n####\n'
         self.assertEqual(s, res)

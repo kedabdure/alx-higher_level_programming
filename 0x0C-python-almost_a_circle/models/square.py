@@ -4,21 +4,18 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """square class"""
+    """Square class"""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """constructor
+        """Constructor
 
         Args:
-            size: the size of the squar
-            x: optional arg
-            y: optional arg
-            id: the number of instance
+            size: The size of the square
+            x: Optional x-coordinate
+            y: Optional y-coordinate
+            id: The id of the square
         """
-        super().__init__()
-        super().__init__(size)
-        self.size = Rectangle.width
-        self.size = Rectangle.height
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Update the class Squar by overriding the __str__ method"""

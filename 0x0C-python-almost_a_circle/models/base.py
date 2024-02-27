@@ -29,8 +29,10 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """chsnge the dict to json"""
-        if list_dictionaries is not None or []:
+        if list_dictionaries is not None:
             js = json.dumps(list_dictionaries)
             return js
+        elif list_dictionaries == []:
+            return []
         else:
             return []

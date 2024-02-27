@@ -40,6 +40,19 @@ class TestRectangle(unittest.TestCase):
         r6 = Rectangle(10, 2, 4, 5, 9)
         self.assertEqual(r6.id, 9)
 
+    def test_passing_string(self):
+        """checking string as id"""
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+
     def test_area(self):
         """check the area"""
         r7 = Rectangle(4, 6)

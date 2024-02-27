@@ -80,7 +80,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r7.area(), 24)
         r8 = Rectangle(6, 7)
         self.assertEqual(r8.area(), 42)
-
+        
     def test_display(self):
         """check for display"""
         f = io.StringIO()
@@ -104,9 +104,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 8)
         r1.update(3, 6, 8, 5, 4)
         self.assertEqual(r1.y, 4)
-        
-    def test_updat_for_kwargs(self):
-        r1 = Rectangle(5, 6)
         r1.update(**{ 'id': 89 })
         self.assertEqual(r1.id, 89)
         r1.update(**{ 'id': 89, 'width': 1 })

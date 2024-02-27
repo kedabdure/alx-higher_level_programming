@@ -91,7 +91,7 @@ class TestRectangle(unittest.TestCase):
         res = '####\n####\n####\n####\n'
         self.assertEqual(s, res)
 
-    def test_updat_for_args(self):
+   def test_updat_for_args(self):
         """check for update"""
         r1 = Rectangle(5, 6)
         r1.update(3)
@@ -103,4 +103,17 @@ class TestRectangle(unittest.TestCase):
         r1.update(3, 6, 7, 8)
         self.assertEqual(r1.x, 8)
         r1.update(3, 6, 8, 5, 4)
+        self.assertEqual(r1.y, 4)
+        
+    def test_updat_for_kwargs(self):
+        r1 = Rectangle(5, 6)
+        r1.update(**{ 'id': 89 })
+        self.assertEqual(r1.id, 89)
+        r1.update(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(r1.width, 1)
+        r1.update(**{ 'id': 89, 'width': 1, 'height': 2 })
+        self.assertEqual(r1.height, 2)
+        r1.update(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        self.assertEqual(r1.x, 3)
+        r1.update(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
         self.assertEqual(r1.y, 4)

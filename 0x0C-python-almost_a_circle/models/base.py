@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines a base model class."""
+import json
 
 
 class Base:
@@ -27,5 +28,8 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """chsnge the dict to json"""
-        js = json.dumps(list_dictionaries)
-        return js
+        if list_dictionaries:
+            js = json.dumps(list_dictionaries)
+            return js
+        else:
+            return []

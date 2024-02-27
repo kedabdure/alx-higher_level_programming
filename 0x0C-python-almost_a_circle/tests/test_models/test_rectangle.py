@@ -53,6 +53,13 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(1, 2, 3, "4")
 
+    def test_for_zero(self):
+        """Checking for id."""
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
+            
     def test_area(self):
         """check the area"""
         r7 = Rectangle(4, 6)

@@ -24,3 +24,8 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """chsnge the dict to json"""
+        js = json.dumps(list_dictionaries)
+        return js

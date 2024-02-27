@@ -25,7 +25,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.id, 2)
         r2 = Rectangle(3, 4)
         self.assertEqual(r2.id, 3)
-        
+
     def test_default_value(self):
         """checking multiple arg""" 
         r3 = Rectangle(10, 2, 0, 0, 12)
@@ -40,6 +40,40 @@ class TestRectangle(unittest.TestCase):
         r6 = Rectangle(10, 2, 4, 5, 9)
         self.assertEqual(r6.id, 9)
 
+    def test_passing_string(self):
+        """checking string as id"""
+        with self.assertRaises(TypeError) as x:
+            o1 = Rectangle("1", 2)
+        self.assertEqual("width must be an integer", str(x.exception))
+        
+        with self.assertRaises(TypeError) as x:
+            o2 = Rectangle(1, "2")
+        self.assertEqual("height must be an integer", str(x.exception))
+        
+        with self.assertRaises(TypeError) as x:
+            o3 = Rectangle(1, 2, "3")
+        self.assertEqual("x must be an integer", str(x.exception))
+        
+        with self.assertRaises(TypeError) as x:
+            o4 = Rectangle(1, 2, 3, "4")
+        self.assertEqual("y must be an integer", str(x.exception))
+        
+        with self.assertRaises(ValueError) as x:
+            o5 = Rectangle(0, 2)
+        self.assertEqual("width must be > 0", str(x.exception))
+        
+        with self.assertRaises(ValueError) as x:
+            o6 = Rectangle(8, 0)
+        self.assertEqual("height must be > 0", str(x.exception))
+        
+        with self.assertRaises(ValueError) as x:
+            o7 = Rectangle(8, 5, -6)
+        self.assertEqual("x must be >= 0", str(x.exception))
+        
+        with self.assertRaises(ValueError) as x:
+            o8 = Rectangle(8, 5, 6, -7)
+        self.assertEqual("y must be >= 0", str(x.exception))
+
     def test_area(self):
         """check the area"""
         r7 = Rectangle(4, 6)
@@ -48,12 +82,12 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r8.area(), 42)
 
     def test_display(self):
-        """Test for public method display."""
-
+        """check for display"""
         f = io.StringIO()
-        r1 = Rectangle(4, 5)
+        r9 = Rectangle(2, 3)
+
         with contextlib.redirect_stdout(f):
-            r1.display()
+            r9.display()
         s = f.getvalue()
-        res = "####\n####\n####\n####\n####\n"
+        res = "##\n##\n##\n"
         self.assertEqual(s, res)

@@ -90,3 +90,17 @@ class TestRectangle(unittest.TestCase):
         s = f.getvalue()
         res = '####\n####\n####\n####\n'
         self.assertEqual(s, res)
+
+    def test_updat_for_args(self):
+        """check for update"""
+        r1 = Rectangle(5, 6)
+        r1.update(3)
+        self.assertEqual(r1.id, 3)
+        r1.update(3, 6)
+        self.assertEqual(r1.width, 6)
+        r1.update(3, 5, 6)
+        self.assertEqual(r1.height, 6)
+        r1.update(3, 6, 7, 8)
+        self.assertEqual(r1.x, 8)
+        r1.update(3, 6, 8, 5, 4)
+        self.assertEqual(r1.y, 4)

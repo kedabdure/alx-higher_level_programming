@@ -87,28 +87,32 @@ class Rectangle(Base):
             self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
-    """assign an argument to each attr"""
-    if args:
-        for i in range(len(args)):
-            if i == 0:
-                self.id = args[i]
-            elif i == 1:
-                self.__width = args[i]
-            elif i == 2:
-                self.__height = args[i]
-            elif i == 3:
-                self.__x = args[i]
-            elif i == 4:
-                self.__y = args[i]
-    else:
-        for key, value in kwargs.items():
-            if key == "id":
-                self.id = value
-            elif key == "width":
-                self.__width = value
-            elif key == "height":
-                self.__height = value
-            elif key == "x":
-                self.__x = value
-            elif key == "y":
-                self.__y = value
+        """Updating the rectangle"""
+        if args:
+            for i in range(len(args)):
+                if i == 0:
+                    if type(args[i]) is not int:
+                        raise TypeError("id must be an integer")
+                    self.id = args[i]
+                elif i == 1:
+                    self.width = args[i]
+                elif i == 2:
+                    self.height = args[i]
+                elif i == 3:
+                    self.x = args[i]
+                elif i == 4:
+                    self.y = args[i]
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if type(value) is not int:
+                        raise TypeError("id must be an integer")
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value

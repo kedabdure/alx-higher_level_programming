@@ -114,3 +114,32 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 3)
         r1.update(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
         self.assertEqual(r1.y, 4)
+
+    def test_for_create(self):
+        """checking the test function"""
+        r1 = Rectangle(4, 5)
+        
+        instance = r1.create(**{ 'id': 89})
+        self.assertEqual(instance.id, 89)
+        
+        instance = r1.create(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.width, 1)
+        
+        instance = r1.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.width, 1)
+        self.assertEqual(instance.height, 2)
+        
+        instance = r1.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.width, 1)
+        self.assertEqual(instance.height, 2)
+        self.assertEqual(instance.x, 3)
+        
+        instance = r1.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.width, 1)
+        self.assertEqual(instance.height, 2)
+        self.assertEqual(instance.x, 3)
+        self.assertEqual(instance.y, 4)

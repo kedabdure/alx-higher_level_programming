@@ -41,4 +41,7 @@ class Base:
         file_name = f"{cls.__name__}.json"
         js_str = cls.to_json_string(ob_dic)
         with open(file_name, "w") as f:
-            f.write(js_str)
+            if list_objs is None:
+                f.write([])
+            else:
+                f.write(js_str)

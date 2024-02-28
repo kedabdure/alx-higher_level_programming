@@ -38,6 +38,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """write to the file"""
         ob_dic = [obj.to_dictionary() for obj in list_objs]
+        file_name = f"{cls.__name__}.json"
         js_str = cls.to_json_string(ob_dic)
-        with open("Rectangle.json", "w") as f:
+        with open(file_name, "w") as f:
             f.write(js_str)

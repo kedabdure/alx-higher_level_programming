@@ -68,10 +68,12 @@ class Base:
     def load_from_file(cls):
         """load from file"""
         filename = cls.__name__ + ".json"
+        lists = []
+        dic_data = []
         if os.path.isfile(filename):
-            return "[]"
-        else:
             with open(filename, "r") as f:
-                data = cls.from_json_string(f.read())
-                ins = cls.create(data)
-            return ins
+                s = f.read()
+                dic_data = cls.from_json_string(s)
+            for obj in dic_data:
+                lists.append(cls.create(**obj))
+        return lists

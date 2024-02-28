@@ -45,3 +45,11 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, 'w') as f:
             f.write(jstr)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """from json to list"""
+        if json_string is None or json_string == []:
+            return "[]"
+        else:
+            return json.loads(json_string)

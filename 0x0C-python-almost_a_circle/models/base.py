@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a base model class."""
 import json
+import os
 
 
 class Base:
@@ -28,13 +29,13 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """chsnge the dict to json"""
+        """change the dict to json"""
         if list_dictionaries is not None:
             return json.dumps(list_dictionaries)
         else:
             return "[]"
 
-     @classmethod
+    @classmethod
     def save_to_file(cls, list_objs):
         """Writes the JSON string representation of list_objs to a file."""
         if list_objs is None or list_objs == []:

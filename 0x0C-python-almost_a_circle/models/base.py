@@ -34,14 +34,13 @@ class Base:
         else:
             return "[]"
 
-    @classmethod
+     @classmethod
     def save_to_file(cls, list_objs):
-        """write to the file"""
-        ob_dic = [obj.to_dictionary() for obj in list_objs]
-        file_name = f"{cls.__name__}.json"
-        js_str = cls.to_json_string(ob_dic)
-        with open(file_name, "w") as f:
-            if list_objs is None or []:
-                f.write('[]')
-            else:
-                f.write(js_str)
+        """Writes the JSON string representation of list_objs to a file."""
+        if list_objs is None or list_objs == []:
+            jstr = "[]"
+        else:
+            jstr = cls.to_json_string([o.to_dictionary() for o in list_objs])
+        filename = cls.__name__ + ".json"
+        with open(filename, 'w') as f:
+            f.write(jstr)

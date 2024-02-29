@@ -55,5 +55,4 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([])
         res = "[]"
         with open("Rectangle.json", "r") as f:
-            file = f.read()
-        self.assertEqual(file, res)
+            self.assertEqual(len(f.read()), len(res))

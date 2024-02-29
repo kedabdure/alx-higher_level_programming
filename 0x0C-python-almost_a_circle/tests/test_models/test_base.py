@@ -56,3 +56,22 @@ class TestBase(unittest.TestCase):
         res = "[]"
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
+    
+    def test_19_0(self):
+        """Test class method load_from_file with normal types."""
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        for x in zip(list_rectangles_input, list_rectangles_output):
+            self.assertEqual(str(x[0]), str(x[1]))
+
+        s1 = Square(10, 2)
+        s2 = Square(9)
+        list_squares_input = [s1, s2]
+        Square.save_to_file(list_squares_input)
+        list_squares_output = Square.load_from_file()
+        for x in zip(list_squares_input, list_squares_output):
+            self.assertEqual(str(x[0]), str(x[1]))

@@ -100,4 +100,33 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 1)
         self.assertEqual(s1.x, 2)
         self.assertEqual(s1.y, 3)
+
+    def test_save_to_file(self):
+        r1 = Square(10, 7, 2, 8)
+        r2 = Square(2, 4)
+        Square.save_to_file([r1, r2])
+
+        # with open("Square.json", "r") as f:
+            
+        #     # self.assertEqual(len(f.read()), res)
+    def test_for_create(self):
+        """checking the test function"""
+        r1 = Square(4, 5)
         
+        instance = r1.create(**{ 'id': 89})
+        self.assertEqual(instance.id, 89)
+        
+        instance = r1.create(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.size, 1)
+        
+        instance = r1.create(**{ 'id': 89, 'size': 1, 'x': 2 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.size, 1)
+        self.assertEqual(instance.x, 2)
+    
+        instance = r1.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 5 })
+        self.assertEqual(instance.id, 89)
+        self.assertEqual(instance.size, 1)
+        self.assertEqual(instance.x, 2)
+        self.assertEqual(instance.y, 5)

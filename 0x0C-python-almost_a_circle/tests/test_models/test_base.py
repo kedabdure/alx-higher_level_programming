@@ -8,7 +8,7 @@ from models.square import Square
 class TestBase(unittest.TestCase):
     def setUp(self):
         Base.__nb_objects = 0
-    
+
     def test_default_value(self):
         b1 = Base()
         self.assertEqual(b1.id, 1)
@@ -28,7 +28,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(type(b8), Base)
         b9 = Base()
         self.assertEqual(type(b9), Base)
-        
+    
     def test_save_to_file(self):
         """Test save_to_file method."""
         r0 = Rectangle(10, 7, 2, 8)
@@ -56,7 +56,7 @@ class TestBase(unittest.TestCase):
         res = "[]"
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
-            
+
     # def test_load_from_file(self):
     #     r1 = Rectangle(10, 7, 2, 8)
     #     r2 = Rectangle(2, 4)
@@ -65,3 +65,9 @@ class TestBase(unittest.TestCase):
     #     list_rectangles_output = Rectangle.load_from_file()
     #     for x in zip(list_rectangles_input, list_rectangles_output):
     #         self.assertEqual(str(x[0]), str(x[1]))
+
+    # def test_create(self):
+    #     r1 = Rectangle(3, 5, 1)
+    #     r1_dictionary = r1.to_dictionary()
+    #     r2 = Rectangle.create(**r1_dictionary)
+    #     self.assertEqual(type(r1), type(r2))

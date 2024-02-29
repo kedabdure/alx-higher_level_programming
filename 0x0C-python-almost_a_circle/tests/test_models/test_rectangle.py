@@ -91,7 +91,7 @@ class TestRectangle(unittest.TestCase):
         res = '####\n####\n####\n####\n'
         self.assertEqual(s, res)
         
-    def test_display_withoutxy(self):
+    def test_display_withxy(self):
         """check for display"""
         f = io.StringIO()
         r9 = Rectangle(4, 4, 2, 2)
@@ -100,7 +100,15 @@ class TestRectangle(unittest.TestCase):
         s = f.getvalue()
         res = '\n\n  ####\n  ####\n  ####\n  ####\n' 
         self.assertEqual(s, res)
-
+    def test_display_withxy(self):
+        f = io.StringIO()
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        with contextlib.redirect_stdout(f):
+            print(r1)
+        s = f.getvalue()
+        res = "[Rectangle] (12) 2/1 - 4/6\n"
+        self.assertEqual(s, res)
+        
     def test_updat_for_args(self):
         """check for update"""
         r1 = Rectangle(5, 6)

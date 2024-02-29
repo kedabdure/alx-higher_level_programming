@@ -28,7 +28,15 @@ class TestBase(unittest.TestCase):
         self.assertEqual(type(b8), Base)
         b9 = Base()
         self.assertEqual(type(b9), Base)
-    
+        
+    def test_to_json(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        self.assertTrue(isinstance(dictionary, dict))
+        json_dict = Base.to_json_string([dictionary])
+        self.assertTrue(isinstance(json_dict, str))
+        self.assertEqual('[{"id": 9, "width": 10, "height": 7, "x": 2, "y": 8}]', str(json_dict))
+        
     def test_save_to_file(self):
         """Test save_to_file method."""
         r0 = Rectangle(10, 7, 2, 8)
@@ -44,30 +52,26 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
     
-    def test_save_none(self):
+    # def test_save_none(self):
         Rectangle.save_to_file(None)
         res = "[]"
         with open("Rectangle.json", "r") as f:
             file = f.read()
         self.assertEqual(file, res)
     
-    def test_save_empty(self):
+    # def test_save_empty(self):
         Rectangle.save_to_file([])
         res = "[]"
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
-
-    # def test_load_from_file(self):
+            
+    # def test_load_file(self):
     #     r1 = Rectangle(10, 7, 2, 8)
     #     r2 = Rectangle(2, 4)
-    #     list_rectangles_input = [r1, r2]
-    #     Rectangle.save_to_file(list_rectangles_input)
-    #     list_rectangles_output = Rectangle.load_from_file()
-    #     for x in zip(list_rectangles_input, list_rectangles_output):
-    #         self.assertEqual(str(x[0]), str(x[1]))
+    #     list_input = [r1, r2]
+    #     Rectangle.save_to_file(list_input)
+    #     list_output = Rectangle.load_from_file()
+        
 
-    # def test_create(self):
-    #     r1 = Rectangle(3, 5, 1)
-    #     r1_dictionary = r1.to_dictionary()
-    #     r2 = Rectangle.create(**r1_dictionary)
-    #     self.assertEqual(type(r1), type(r2))
+    #     self.assertEqual(len(list_input), len(list_output))
+        

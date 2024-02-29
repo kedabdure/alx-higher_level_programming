@@ -57,7 +57,7 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
             
-    # def test_oad_from_file(self):
+    # def test_load_from_file(self):
     #     r1 = Rectangle(10, 7, 2, 8)
     #     r2 = Rectangle(2, 4)
     #     list_rectangles_input = [r1, r2]

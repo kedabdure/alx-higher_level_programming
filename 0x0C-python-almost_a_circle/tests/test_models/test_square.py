@@ -60,3 +60,9 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError) as e:
             Square(0)
         self.assertEqual("width must be > 0", str(e.exception))
+
+    def test_str(self):
+        s1 = Square(5)
+        res = "[Square] (1) 0/0 - 5"
+        s = Square.__str__(s1)
+        self.assertEqual(s, res)

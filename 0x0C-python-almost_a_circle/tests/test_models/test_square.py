@@ -66,3 +66,38 @@ class TestSquare(unittest.TestCase):
         res = "[Square] (1) 0/0 - 5"
         s = Square.__str__(s1)
         self.assertEqual(s, res)
+        
+    def test_update_args(self):
+        s1 = Square(10)
+        s1.update(3)
+        self.assertEqual(s1.id, 3)
+        
+        s1.update(4, 6)
+        self.assertEqual(s1.size, 6)
+        
+        s1.update(4, 6, 39)
+        self.assertEqual(s1.x, 39)
+        
+        s1.update(4, 6, 45, 100)
+        self.assertEqual(s1.y, 100)
+        
+    def test_update_kwargs(self):
+        s1 = Square(5)
+        s1.update(**{ 'id': 89 })
+        self.assertEqual(s1.id, 89)
+        
+        s1.update(**{ 'id': 89, 'size': 1 })
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        
+        s1.update(**{ 'id': 89, 'size': 1, 'x': 2 })
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+        
+        s1.update(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3 })
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 3)
+        

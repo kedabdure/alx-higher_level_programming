@@ -29,33 +29,24 @@ class TestBase(unittest.TestCase):
         b9 = Base()
         self.assertEqual(type(b9), Base)
         
-    # def test_save_to_file(self):
-    #     """save to file"""
-    #     r1 = Rectangle(4, 5)
-    #     r2 = Rectangle(5, 6, 3)
-        
-    #     obj_list = ([r1, r2])
-        
-    #     Rectangle.save_to_file(obj_list)
-    #     self.assertTrue(os.path.exists("Rectangle.json"))
-        
-    #     res = '[{"id": 6, "width": 4, "height": 5, "x": 0, "y": 0}, {"id": 7, "width": 5, "height": 6, "x": 3, "y": 0}]'
-        
-    #     with open("Rectangle.json", "r") as f:
-    #         file = f.read()
-    #     self.assertEqual(len(file), len(res))
-    #     self.assertEqual(file, res)
-        
+    def test_save_to_file(self):
+        """Test save_to_file method."""
+        r0 = Rectangle(10, 7, 2, 8)
+        r1 = Rectangle(2, 4)
+        Rectangle.save_to_file([r0, r1])
+        res = ('[{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7},' +
+               ' {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]')
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(len(f.read()), len(res))
+
     def test_save_none(self):
-        r1 = Rectangle(4, 5)
         Rectangle.save_to_file(None)
         res = "[]"
         with open("Rectangle.json", "r") as f:
             file = f.read()
         self.assertEqual(file, res)
-        
+    
     def test_save_empty(self):
-        r1 = Rectangle(4, 5)
         Rectangle.save_to_file([])
         res = "[]"
         with open("Rectangle.json", "r") as f:

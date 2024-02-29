@@ -90,6 +90,16 @@ class TestRectangle(unittest.TestCase):
         s = f.getvalue()
         res = '####\n####\n####\n####\n'
         self.assertEqual(s, res)
+        
+    def test_display_withoutxy(self):
+        """check for display"""
+        f = io.StringIO()
+        r9 = Rectangle(4, 4, 2, 2)
+        with contextlib.redirect_stdout(f):
+            r9.display()
+        s = f.getvalue()
+        res = '\n\n  ####\n  ####\n  ####\n  ####\n' 
+        self.assertEqual(s, res)
 
     def test_updat_for_args(self):
         """check for update"""
@@ -143,3 +153,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(instance.height, 2)
         self.assertEqual(instance.x, 3)
         self.assertEqual(instance.y, 4)
+
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        res = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r1_dictionary, res)

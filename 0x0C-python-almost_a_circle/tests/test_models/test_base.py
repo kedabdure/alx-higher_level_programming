@@ -103,3 +103,11 @@ class TestBase(unittest.TestCase):
         list_output = Rectangle.load_from_file()
         self.assertEqual(len(list_input), len(list_output))
     
+    def test_load_file(self):
+        r1 = Square(10, 7, 2, 8)
+        r2 = Square(2, 4)
+        list_input = [r1, r2]
+        Square.save_to_file(list_input)
+        list_output = Square.load_from_file()
+        self.assertEqual(len(list_input), len(list_output))
+    

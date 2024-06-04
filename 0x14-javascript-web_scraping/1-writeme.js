@@ -10,5 +10,4 @@ fs.writeFile(filename, content, 'utf-8', (error) => {
     console.log(error);
     return;
   }
-  console.log('file written successully');
 });

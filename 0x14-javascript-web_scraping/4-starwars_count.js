@@ -17,7 +17,7 @@ request.get(url, (error, response, body) => {
     const chars = films[i].characters;
     for (const j in chars) {
       const char = chars[j];
-      if (char.includes(/18/)) {
+      if (char.includes('/18/')) {
         count++;
         break;
       }

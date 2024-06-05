@@ -23,7 +23,7 @@ request(urlMovie, function (error, response, body) {
     });
 });
 
-function fetchCharacter(url) {
+function fetchCharacter (url) {
   return new Promise((resolve, reject) => {
     request(url, function (error, response, body) {
       if (error) {

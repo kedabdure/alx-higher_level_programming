@@ -1,4 +1,7 @@
 const $ = window.$;
-$.get('https://swapi.co/api/people/5/?format=json', function (data, textStatus) {
-  $('DIV#character').text(data.name);
+$.get('https://swapi.co/api/films/?format=json', function (data, textStatus) {
+  const res = data.results;
+  for (let i = 0; i < res.length; i++) {
+    $('UL#list_movies').append('<li>' + res[i].title + '</li>');
+  }
 });
